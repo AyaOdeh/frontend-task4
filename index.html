@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مشروع Tailwind CSS - خلفية سماوية</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap');
+        
+        body {
+            font-family: 'Cairo', sans-serif;
+        }
+        
+        .star {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0;
+            animation: twinkle 3s infinite;
+            background-color: white;
+        }
+        
+        @keyframes twinkle {
+            0% { opacity: 0; }
+            50% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+        
+        .shooting-star {
+            position: absolute;
+            background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 50%, rgba(255,255,255,0) 100%);
+            border-radius: 50%;
+            opacity: 0;
+        }
+        
+       
+        .mobile-menu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out;
+        }
+        
+        .mobile-menu.open {
+            max-height: 500px;
+            transition: max-height 0.5s ease-in;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-b from-blue-900 via-indigo-900 to-black min-h-screen overflow-x-hidden text-white relative">
+ 
+    <div id="stars-container" class="fixed inset-0 -z-10"></div>
+    
+   
+    <nav class="bg-black/70 backdrop-blur-lg flex flex-row-reverse justify-end py-4 px-6 sticky top-0 z-50 shadow-lg">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="#" class="text-xl font-bold text-blue-300 ">Mini Tailwind Project</a>
+            
+            <div class="hidden md:flex space-x-6 space-x-reverse ">
+                <a href="#home" class="hover:bg-blue-300 active:bg-blue-300 focus:bg-blue-300 rounded-2xl p-2 hover:text-blue-950 transition duration-300">الرئيسية</a>
+                <a href="#serves" class="hover:bg-blue-300  active:bg-blue-300 focus:bg-blue-300 rounded-2xl p-2 hover:text-blue-950 transition duration-300">الخدمات</a>
+                <a href="#project" class="hover:bg-blue-300 active:bg-blue-300 focus:bg-blue-300  rounded-2xl p-2 hover:text-blue-950 transition duration-300">المشاريع</a>
+                <a href="#aboutus" class="hover:bg-blue-300 active:bg-blue-300 focus:bg-blue-300  rounded-2xl p-2 hover:text-blue-950 transition duration-300">عنّا</a>
+                <a href="#contact" class="hover:bg-blue-300 active:bg-blue-300 focus:bg-blue-300  rounded-2xl p-2 hover:text-blue-950 transition duration-300">اتصل بنا</a>
+            </div>
+            
+            <button id="mobile-menu-button" class="md:hidden text-white">
+                <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+                <svg id="close-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
+    </nav>
+
+
+    <div id="mobile-menu" class="mobile-menu md:hidden bg-black/80 backdrop-blur-md">
+        <div class="container mx-auto py-4 px-6 flex flex-col space-y-4">
+            <a href="#home" class="hover:text-blue-300    active:bg-blue-500 focus:bg-blue-300  transition duration-300 py-2">الرئيسية</a>
+            <a href="#serves" class="hover:text-blue-300  active:bg-blue-500 focus:bg-blue-300 transition duration-300 py-2">الخدمات</a>
+            <a href="#project" class="hover:text-blue-300 active:bg-blue-500 focus:bg-blue-300  transition duration-300 py-2">المشاريع</a>
+            <a href="#aboutus" class="hover:text-blue-300 active:bg-blue-500 focus:bg-blue-300  transition duration-300 py-2">عنّا</a>
+            <a href="#contact" class="hover:text-blue-300 active:bg-blue-500 focus:bg-blue-300  transition duration-300 py-2">اتصل بنا</a>
+        </div>
+    </div>
+
+  
+    <section class="relative py-20 px-4" id="home">
+        <div class="container mx-auto text-center">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6" >تصميم ويب <span class="text-blue-300">استثنائي</span> بلمسة سماوية</h1>
+            <p class="text-xl md:text-2xl max-w-2xl mx-auto mb-10 opacity-90">
+                نقدم حلولاً رقمية مبتكرة تجمع بين الجمال البصري والأداء المتقن
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <button  onclick="scrollToSection('project')" class="bg-blue-600 hover:bg-blue-700 px-8 py-3 rounded-full font-medium transition duration-300 transform hover:-translate-y-1">
+                    ابدأ مشروعك الآن
+                </button>
+                <button onclick="scrollToSection('aboutus')"
+     class="bg-transparent border border-white hover:bg-white/10 px-8 py-3 rounded-full font-medium transition duration-300">
+                    اعرف المزيد
+                </button>
+            </div>
+        </div>
+    </section>
+
+   
+    <section class="py-16 px-4 bg-black/40 backdrop-blur-sm" id="serves">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-12">خدماتنا <span class="text-blue-300">المتميزة</span></h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+                <div class="bg-gradient-to-br from-indigo-900/50 to-purple-900/50 p-6 rounded-2xl shadow-lg border border-white/10 backdrop-blur-md transition-transform duration-300 hover:-translate-y-2">
+                    <div class="w-14 h-14 bg-blue-700 rounded-xl flex items-center justify-center mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">تطوير الويب</h3>
+                    <p class="opacity-80">تصميم وتطوير مواقع ويب متجاوبة وسريعة باستخدام أحدث التقنيات</p>
+                </div>
+                
+                
+                <div class="bg-gradient-to-br from-indigo-900/50 to-purple-900/50 p-6 rounded-2xl shadow-lg border border-white/10 backdrop-blur-md transition-transform duration-300 hover:-translate-y-2">
+                    <div class="w-14 h-14 bg-purple-700 rounded-xl flex items-center justify-center mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" class="w-14 h-14">
+ 
+  <path d="M15.885 2.1c-7.1 0-6.651 3.07-6.651 3.07v3.19h6.752v.95H6.673S2.007 8.2 2.007 15.99s4.071 9.82 4.071 9.82h2.93v-3.3s-.15-4.07 3.9-4.07h6.762s3.75.07 3.75-3.65v-6.7s.57-3.72-3.84-3.72h-6.652z" 
+        fill="none" 
+        stroke="white" 
+        stroke-width="0.7"/>
+  
+ 
+  <circle cx="10.565" cy="6.84" r="1.5" fill="none" stroke="white" stroke-width="0.7"/>
+  
+
+  <path d="M16.115 29.91c7.1 0 6.651-3.07 6.651-3.07v-3.19h-6.752v-.95h9.313s4.666 1.11 4.666-6.68-4.071-9.82-4.071-9.82h-2.93v3.3s.15 4.07-3.9 4.07h-6.762s-3.75-.07-3.75 3.65v6.7s-.57 3.72 3.84 3.72h6.652z" 
+        fill="none" 
+        stroke="white" 
+        stroke-width="0.7"/>
+  
+ 
+  <circle cx="21.435" cy="25.17" r="1.5" fill="none" stroke="white" stroke-width="0.7"/>
+</svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">لغة python</h3>
+                    <p class="opacity-80">انشاء برامج بستخدام الذكاء الاسطناعي والعاب بالغة بايثون</p>
+                </div>
+                
+              
+                <div class="bg-gradient-to-br from-indigo-900/50 to-purple-900/50 p-6 rounded-2xl shadow-lg border border-white/10 backdrop-blur-md transition-transform duration-300 hover:-translate-y-2">
+                    <div class="w-14 h-14 bg-pink-700 rounded-xl flex items-center justify-center mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">حلول متكاملة</h3>
+                    <p class="opacity-80">تقديم حلول تقنية متكاملة تلبي جميع احتياجات عملك الرقمية</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="py-16 px-4  h-200 w-full  " id="project">
+        <h2 class="text-3xl font-bold text-center 12 p-10 text-blue-300 "> مشارِعُنا </h2>
+        <div class="container mx-auto h-3/5 grid-cols-2 grid gap-6">               
+ <div class=" bg-black/40 backdrop-blur-sm rounded-2xl shadow-lg border border-white/10  transition-transform duration-300 hover:-translate-y-2">
+   <a href="https://github.com/AyaOdeh/frontend-task3/tree/master" target="_blank" rel="noopener noreferrer">
+    <img src="a1.png" alt=""  class="rounded-2xl h-80"> </a>
+  
+</div>
+ <div class="bg-black/40 backdrop-blur-sm rounded-2xl shadow-lg border border-white/10  transition-transform duration-300 hover:-translate-y-2">
+    <a href="https://github.com/AyaOdeh/frontend-task2/tree/master" target="_blank" rel="noopener noreferrer">
+    <img src="a2.png" alt=""  class="rounded-2xl h-80">
+</a>
+</div>
+ <div class="bg-black/40 backdrop-blur-sm rounded-2xl shadow-lg border border-white/10  transition-transform duration-300 hover:-translate-y-2">
+<a href="https://github.com/AyaOdeh/voice_assistant_project" target="_blank" rel="noopener noreferrer">
+    <img src="a3.png" alt=""  class="rounded-2xl h-80 w-full">
+</a>
+</div>
+ <div class="bg-black/40 backdrop-blur-sm rounded-2xl shadow-lg border border-white/10  transition-transform duration-300 hover:-translate-y-2">
+<a href="https://github.com/AyaOdeh/week1-html-portfolio/tree/master" target="_blank" rel="noopener noreferrer">
+    <img src="a4.png" alt=""  class="rounded-2xl h-80 w-full">
+</a>
+</div>
+     </div>
+
+    </section>
+     <section class="py-16 px-4 bg-black/40 backdrop-blur-sm " id="aboutus">
+<h2 class="text-3xl font-bold text-center mb-12">من  <span class="text-blue-300">نحن</span></h2>
+        <div class="container mx-auto h-auto w-auto grid grid-cols-2 gap-10">
+            <div class="bg-gradient-to-br  from-indigo-900/50 to-purple-900/50 p-6 rounded-2xl shadow-lg border border-white/10 backdrop-blur-md transition-transform duration-300 hover:-translate-y-2">
+                  <h3 class="text-xl font-bold mb-4 text-blue-300 text-center">رؤيتنا</h3> 
+                  <p>أن نكون الشركة الرائدة في تقديم حلول برمجية مبتكرة تحوّل طريقة عمل المنظمات وتثري حياة الأفراد، من خلال توظيف أحدث التقنيات لخلق مستقبل رقمي متكامل يتسم بالذكاء والكفاءة والاستدامة.</p>
+                </div>
+                <div class="bg-gradient-to-br from-indigo-900/50 to-purple-900/50 p-6 rounded-2xl shadow-lg border border-white/10 backdrop-blur-md transition-transform duration-300 hover:-translate-y-2">
+                   <h3 class="text-xl font-bold mb-4 text-blue-300 text-center">رسالتنا</h3>
+                   <p>تطوير حلول برمجية استثنائية تلبي احتياجات عملائنا بأعلى معايير الجودة، من خلال فريق مبدع وبيئة عمل محفزة على الابتكار، مع الالتزام الدائم بمسؤوليتنا الاجتماعية وبناء شراكات طويلة الأمد تقوم على الثقة والشفافية.</p>
+                </div>
+
+      </div>
+    </section>
+
+    
+    <section class="py-16 px-4" id="contact">
+        <div class="container mx-auto max-w-2xl">
+            <h2 class="text-3xl font-bold text-center mb-12" >اتصل <span class="text-blue-300">بنا</span></h2>
+            
+            <form class="bg-black/40 backdrop-blur-md p-8 rounded-2xl shadow-xl border border-white/10">
+                <div class="mb-6">
+                    <label for="name" class="block mb-2 font-medium" >الاسم الكامل</label>
+                    <input type="text" id="name" class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition duration-300" placeholder="أدخل اسمك">
+                </div>
+                
+                <div class="mb-6">
+                    <label for="email" class="block mb-2 font-medium">البريد الإلكتروني</label>
+                    <input type="email" id="email" class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition duration-300" placeholder="أدخل بريدك الإلكتروني">
+                </div>
+                
+                <div class="mb-6">
+                    <label for="message" class="block mb-2 font-medium">الرسالة</label>
+                    <textarea id="message" rows="4" class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition duration-300" placeholder="اكتب رسالتك هنا"></textarea>
+                </div>
+                
+                <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 py-3 rounded-lg font-medium transition duration-300 transform hover:-translate-y-1">
+                    إرسال الرسالة
+                </button>
+            </form>
+        </div>
+    </section>
+     
+    
+    <footer class="bg-black/80 py-12 px-4 border-t border-white/10">
+        <div class="container mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4 text-blue-300">Mini Tailwind Project</h3>
+                    <p class="opacity-80">نقدم حلولاً رقمية مبتكرة تجمع بين الجمال البصري والأداء المتقن</p>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-4">روابط سريعة</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="opacity-80 hover:text-blue-300 transition duration-300">الرئيسية</a></li>
+                        <li><a href="#" class="opacity-80 hover:text-blue-300 transition duration-300">الخدمات</a></li>
+                        <li><a href="#" class="opacity-80 hover:text-blue-300 transition duration-300">المشاريع</a></li>
+                        <li><a href="#" class="opacity-80 hover:text-blue-300 transition duration-300">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-4">معلومات الاتصال</h3>
+                    <p class="opacity-80 mb-2">فلسطين،الخليل</p>
+                    <p class="opacity-80 mb-2">بلدة شيوخ</p>
+                    <p class="opacity-80 mb-2 hover:text-blue-300"><a href="mailto:ayaodeh309@gmail.com">ayaodeh309@gmail.com</a></p>
+                    <p class="opacity-80 hover:text-blue-300"><a href="tel:+970569728120">+970569728120</a></p>
+                </div>
+            </div>
+            
+            <div class="border-t border-white/10 mt-8 pt-8 text-center opacity-70">
+                <p>© 2025 Mini Tailwind Project. جميع الحقوق محفوظة</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+       
+        function createStars() {
+            const container = document.getElementById('stars-container');
+            container.innerHTML = '';
+            
+            const starsCount = 200;
+            const screenWidth = window.innerWidth;
+            const screenHeight = window.innerHeight;
+            
+            for (let i = 0; i < starsCount; i++) {
+                const star = document.createElement('div');
+                star.classList.add('star');
+                
+              
+                const size = Math.random() * 3 + 1;
+                star.style.width = `${size}px`;
+                star.style.height = `${size}px`;
+                
+             
+                const x = Math.random() * screenWidth;
+                const y = Math.random() * screenHeight;
+                star.style.left = `${x}px`;
+                star.style.top = `${y}px`;
+                
+               
+                const delay = Math.random() * 5;
+                const duration = Math.random() * 3 + 1;
+                star.style.animationDelay = `${delay}s`;
+                star.style.animationDuration = `${duration}s`;
+                
+                container.appendChild(star);
+            }
+            
+            createShootingStars();
+        }
+        
+        function createShootingStars() {
+            const container = document.getElementById('stars-container');
+            
+            for (let i = 0; i < 2; i++) {
+                const shooter = document.createElement('div');
+                shooter.classList.add('shooting-star');
+                
+                const width = Math.random() * 80 + 40;
+                const height = Math.random() * 2 + 1;
+                shooter.style.width = `${width}px`;
+                shooter.style.height = `${height}px`;
+                
+                const startX = Math.random() * window.innerWidth;
+                const startY = Math.random() * window.innerHeight / 2;
+                shooter.style.left = `${startX}px`;
+                shooter.style.top = `${startY}px`;
+                
+                const angle = Math.random() * 60 + 15;
+                shooter.style.transform = `rotate(${angle}deg)`;
+                
+                const duration = Math.random() * 3 + 2;
+                shooter.style.animation = `shoot ${duration}s linear`;
+                
+                container.appendChild(shooter);
+                
+                setTimeout(() => {
+                    shooter.remove();
+                }, duration * 1000);
+            }
+        }
+        
+        const style = document.createElement('style');
+        style.innerHTML = `
+            @keyframes shoot {
+                0% {
+                    opacity: 0;
+                    transform: translateX(0) translateY(0) rotate(var(--angle, 45deg));
+                }
+                1% {
+                    opacity: 1;
+                }
+                100% {
+                    opacity: 0;
+                    transform: translateX(300px) translateY(300px) rotate(var(--angle, 45deg));
+                }
+            }
+        `;
+        document.head.appendChild(style);
+        
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+        const closeIcon = document.getElementById('close-icon');
+        
+        mobileMenuButton.addEventListener('click', function() {
+            mobileMenu.classList.toggle('open');
+            
+            if (mobileMenu.classList.contains('open')) {
+                menuIcon.classList.add('hidden');
+                closeIcon.classList.remove('hidden');
+            } else {
+                menuIcon.classList.remove('hidden');
+                closeIcon.classList.add('hidden');
+            }
+        });
+        
+        const menuLinks = mobileMenu.querySelectorAll('a');
+        menuLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                mobileMenu.classList.remove('open');
+                menuIcon.classList.remove('hidden');
+                closeIcon.classList.add('hidden');
+            });
+        });
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            if (section) {
+                section.scrollIntoView({ behavior: 'smooth' });
+                
+             
+                section.style.backgroundColor = 'rgba(79, 70, 229, 0.9)';
+                setTimeout(() => {
+                    section.style.backgroundColor = '';
+                }, 1000);
+            }
+        }
+        
+     
+        document.addEventListener('DOMContentLoaded', function() {
+       
+            const buttons = document.querySelectorAll('.nav-btn');
+            buttons.forEach(button => {
+                const sectionId = button.getAttribute('onclick').replace('scrollToSection(\'', '').replace('\')', '');
+                button.addEventListener('click', () => scrollToSection(sectionId));
+            });
+        });
+   
+        window.addEventListener('load', function() {
+            createStars();
+          
+            setInterval(createShootingStars, 5000);
+        });
+        
+       
+        window.addEventListener('resize', createStars);
+
+    </script>
+</body>
+</html>
